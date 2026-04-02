@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Driven Smart Farming System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-brand" id="nav-title">AI-Driven Smart Farming System</div>
+        <div class="nav-right">
+            <div class="status">
+                <span class="dot"></span> ESP32 Disconnected
+            </div>
+            <select class="lang-dropdown">
+                <option>English</option>
+                <option>Hindi</option>
+                <option>Marathi</option>
+            </select>
+            <button class="home-btn" onclick="showPage('welcome')">Home</button>
+        </div>
+    </nav>
+
+    <div id="welcome-page" class="content-page active">
+        <div class="card welcome-card">
+            <h1>Welcome to Smart Farming</h1>
+            <p>This system uses real-time soil data collected from sensors to recommend the most suitable crops and appropriate fertilizers for your farm.</p>
+            
+            <div class="features">
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Real-time soil parameter monitoring</li>
+                    <li>AI-based crop recommendation</li>
+                    <li>Smart fertilizer suggestions</li>
+                    <li>Historical data tracking and analysis</li>
+                </ul>
+            </div>
+            <button class="action-btn" onclick="showPage('dashboard')">Go to Dashboard</button>
+        </div>
+    </div>
+
+    <div id="dashboard-page" class="content-page">
+        <div class="dashboard-grid">
+            
+            <div class="stats-col">
+                <div class="card">
+                    <h3>Current Soil Parameters</h3>
+                    <div class="grid-2x2">
+                        <div class="sensor-box">Temperature<br><strong>28.4°C</strong></div>
+                        <div class="sensor-box">Humidity<br><strong>0.0%</strong></div>
+                        <div class="sensor-box">Moisture<br><strong>29.3%</strong></div>
+                        <div class="sensor-box">pH Level<br><strong>6.4</strong></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>NPK Levels</h3>
+                    <div class="grid-3x1">
+                        <div class="sensor-box green">Nitrogen (N)<br><strong>0 mg/kg</strong></div>
+                        <div class="sensor-box green">Phosphorus (P)<br><strong>0 mg/kg</strong></div>
+                        <div class="sensor-box green">Potassium (K)<br><strong>0 mg/kg</strong></div>
+                    </div>
+                </div>
+
+                <div class="card chart-card">
+                    <h3>Parameter History</h3>
+                    <canvas id="parameterChart"></canvas>
+                </div>
+            </div>
+
+            <div class="ai-col">
+                <div class="card ai-card">
+                    <h3>AI Recommendations</h3>
+                    <div class="rec-item">
+                        <h4>Recommended Crops</h4>
+                        <p id="crop-text" class="loading">Loading crop recommendations...</p>
+                    </div>
+                    <div class="rec-item">
+                        <h4>Fertilizer Suggestions</h4>
+                        <p id="fert-text" class="loading">Loading fertilizer recommendations...</p>
+                    </div>
+                    <button class="refresh-btn" onclick="refreshData()">Refresh Data</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
